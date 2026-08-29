@@ -1,11 +1,10 @@
 const reviews=[
-['Cliente verificado','Produto excelente, recomendo!','Há 1 dia'],
-['Cliente verificado','Material muito bom e acabamento bonito.','Há 3 dias'],
-['Cliente verificado','Chegou bem embalado e dentro do prazo.','Há 5 dias'],
-['Cliente verificado','Gostei bastante do conjunto e da quantidade de peças.','Há 1 semana'],
-['Cliente verificado','Muito bonito e fácil de limpar.','Há 2 semanas']
+['Isabela N.','Estou utilizando as panelas há dez dias e além de serem lindas, até agora superou minhas expectativas. São super fáceis de lavar, a espessura é muito boa, muito boas no cozimento dos alimentos…estou gostando.','Há 2 horas','assets/images/reviews/avatar-isabela.png',['assets/images/reviews/foto-panelas-armario.png','assets/images/reviews/foto-panelas-fogao.png']],
+['Camila S.','As panelas são maravilhosas. Vieram em perfeito estado e muito bem embaladas. Ainda não as preparei para uso. Assim que usar volto para dar um melhor feedback.','Há 5 horas','assets/images/reviews/avatar-camila.png',['assets/images/reviews/foto-panelas-caixa.png']],
+['Fernanda M.','Produto excelente, recomendo!','Há 1 dia','assets/images/reviews/avatar-fernanda.png',[]],
+['Juliana R.','Demorei muito pra achar a cor, diz que pode em fogão de gás, porém acho que ela são para indução, não manchou no a gás… eu não tenho fogão a indução mas realmente a cor é a quantidade são perfeitas!','Há 2 dias','assets/images/reviews/avatar-juliana.png',['assets/images/reviews/foto-panelas-mesa.png']]
 ];
-document.getElementById('reviews').innerHTML=reviews.map(r=>`<article class="review"><div class="review-head"><span>${r[0]} <span class="verified">Compra confirmada</span></span><span class="stars">★★★★★</span></div><small>${r[2]}</small><p>${r[1]}</p></article>`).join('');
+document.getElementById('reviews').innerHTML=reviews.map(r=>`<article class="review"><div class="review-top"><img class="review-avatar" src="${r[3]}" alt="${r[0]}"><span class="review-name">${r[0]}</span><span class="verified">✓ Compra confirmada</span></div><div class="review-head"><span class="stars">★★★★★</span><small>${r[2]} atrás</small></div><p>${r[1]}</p>${r[4].length?`<div class="review-photos">${r[4].map(p=>`<img src="${p}" alt="Foto enviada por ${r[0]}">`).join('')}</div>`:''}</article>`).join('');
 
 document.querySelectorAll('.thumb').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.thumb').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById('mainProductImage').src=btn.dataset.src}));
 const variants=[['Mármore',87.90,1],['Quartzo',79.90,0],['Grafite',89.90,0],['Oliva',89.90,0]];
